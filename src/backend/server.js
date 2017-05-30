@@ -4,6 +4,8 @@ const favicon = require('serve-favicon')
 
 const app = express()
 
+const PORT = process.env.PORT || 8080
+
 app.use(express.static(path.join(__dirname, '..', '..', 'lib', 'build')))
 app.use(favicon(path.join(__dirname, '..', '..', 'lib', 'build', 'assets', 'favicon.png')))
 
@@ -12,4 +14,4 @@ app.get('*', function(req, res) {
 });
 
 console.log('Server started')
-app.listen(8080)
+app.listen(PORT)
