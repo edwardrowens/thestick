@@ -1,5 +1,7 @@
+import React from 'react'
+
 export default (props) => {
     return (
-        <p className="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active"></p>
+        <div className="mdl-spinner mdl-js-spinner mdl-spinner--single-color is-active"></div>
     )
 }

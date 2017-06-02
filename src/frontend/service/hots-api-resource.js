@@ -1,5 +1,5 @@
 import { Client } from 'node-rest-client'
-import Config from '../../../config/config'
+import Config from '../config/config'
 
 export default class HotsApiResource {
     constructor(battleTag, id, gameMode) {
@@ -10,11 +10,16 @@ export default class HotsApiResource {
 
     send(callback) {
         let client = new Client()
-        client.get('https://api.hotslogs.com/Public/Players/1/' + this.battleTag + '_' + player.id, (body, res) => {
+        client.get('https://api.hotslogs.com/Public/Players/1/' + this.battleTag + '_' + this.id, (body, res) => {
             if (res.statusCode == 200) {
-                for (let leaderboardRankings in body["LeaderboardRankings"]) {
+                if (!body) {
+                    console.log("no body present for: " + res.url)
+                    callback(null)
+                    return
+                }
+                for (let leaderboardRankings of body.LeaderboardRankings) {
                     if (leaderboardRankings.GameMode == this.gameMode) {
-                        callback({leagueRank: leaderboardRankings['LeagueRank'], currentMMR: leaderboardRankings['CurrentMMR']})
+                        callback([leaderboardRankings.LeagueRank, leaderboardRankings.CurrentMMR])
                         return
                     }
                 }
@@ -24,5 +29,4 @@ export default class HotsApiResource {
             }
         })
     }
-}
 }

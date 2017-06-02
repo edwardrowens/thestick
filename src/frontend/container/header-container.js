@@ -56,7 +56,7 @@ class HeaderContainer extends React.Component {
                     <div className="mdl-layout__header-row">
                         <span className="mdl-layout-title">The Stick</span>
                         <div className="mdl-layout-spacer"></div>
-                        <nav className="mdl-navigation mdl-js-ripple-effect">
+                        <nav className="mdl-navigation">
                             <TabComponent name={'home'} onClick={this.onClick} isActive={this.state.homeActive} text={'Home'} path={'/'} />
                             <TabComponent name={'wow'} onClick={this.onClick} isActive={this.state.wowActive} text={'WoW'} path={'/wow'} />
                             <TabComponent name={'overwatch'} onClick={this.onClick} isActive={this.state.overwatchActive} text={'Overwatch'} path={'/overwatch'} />

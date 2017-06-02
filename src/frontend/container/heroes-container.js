@@ -1,11 +1,11 @@
 import React from 'react'
 
-import LeaderboardComponent from '../component/leaderboard-component'
+import QuickMatchLeaderBoardComponent from '../component/leaderboard/hots/quick-match-leaderboard-component'
 
 class HeroesContainer extends React.Component {
     render() {
         return (
-            <LeaderboardComponent/>
+            <QuickMatchLeaderBoardComponent/>
         )
     }
 }
