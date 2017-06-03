@@ -24,12 +24,10 @@ export default class HotsLeaderboardComponent extends React.Component {
             rows.push([data.battleTag, data.leagueRank, data.currentMMR])
         })
         return (
-            <div>
-                <LeaderboardView title={this.props.title}
-                    rows={rows}
-                    header={this.state.header}
-                    playersLoaded={this.props.playersLoaded} />
-            </div>
+            <LeaderboardView title={this.props.title}
+                rows={rows}
+                header={this.state.header}
+                playersLoaded={this.props.playersLoaded} />
         )
     }
 }

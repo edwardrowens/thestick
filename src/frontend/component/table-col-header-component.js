@@ -16,19 +16,17 @@ export default class TableColHeaderComponent extends React.Component {
     }
 
     componentWillMount() {
-        console.log("MOUNTING HEADERS")
         this.setState({
             headerColTags: this.props.data.map((e) =>
-                <Th key={UUID()} style={{ cursor: 'pointer' }} column={e}><strong>{e}</strong></Th>
+                <Th key={UUID()} column={e}><strong>{e}</strong></Th>
             )
         })
-        console.log("header col tags: " + JSON.stringify(this.state.headerColTags))
     }
 
     render() {
         let headerColTags = this.state.headerColTags
         return (
-            {headerColTags}
+            { headerColTags }
         )
     }
 }

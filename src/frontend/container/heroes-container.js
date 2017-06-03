@@ -48,18 +48,10 @@ export default class HeroesContainer extends React.Component {
     render() {
         return (
             <div className="mdl-grid">
-                <div className="mdl-cell--3-col">
-                    <HotsLeaderboardComponent gameModeKey={"QuickMatch"} title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} />
-                </div>
-                <div className="mdl-cell--3-col">
-                    <HotsLeaderboardComponent gameModeKey={"HeroLeague"} title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} />
-                </div>
-                <div className="mdl-cell--3-col">
-                    <HotsLeaderboardComponent gameModeKey={"UnrankedDraft"} title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} />
-                </div>
-                <div className="mdl-cell--3-col">
-                    <HotsLeaderboardComponent gameModeKey={"TeamLeague"} title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} />
-                </div>
+                <HotsLeaderboardComponent gameModeKey={"QuickMatch"} title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} />
+                <HotsLeaderboardComponent gameModeKey={"HeroLeague"} title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} />
+                <HotsLeaderboardComponent gameModeKey={"UnrankedDraft"} title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} />
+                <HotsLeaderboardComponent gameModeKey={"TeamLeague"} title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} />
             </div>
         )
     }
