@@ -1,14 +1,18 @@
 import React from 'react'
 import UUID from 'uuid/v4'
 
+import { Td, Tr, Th } from 'reactable'
+
 import TableView from '../view/table-view'
-import TableRowView from '../view/table-row-view'
+import TableRowComponent from './table-row-component'
+import TableColHeaderComponent from './table-col-header-component'
 
 export default class TableComponent extends React.Component {
     constructor(props) {
         super(props)
 
         this.state = {
+            header: {},
             rows: []
         }
 
@@ -16,15 +20,33 @@ export default class TableComponent extends React.Component {
     }
 
     componentWillMount() {
-        console.log('mounting table component with rows: ' + rows)
+        // map the rows
+        let tableRows = []
         this.props.rows.forEach((row) => {
-            this.setState({ rows: this.state.rows.concat(<TableRowView key={UUID()} data={row} />) })
+            let rowData = []
+            for (let i = 0; i < row.length; ++i) {
+                <Td key={UUID()} column={this.props.header[i]}>{row[i]}</Td>
+            }
+            tableRows.push(<Tr>{rowData}</Tr>)
+        })
+
+        // map the columns
+        let headerColTags = this.props.header.map((e) =>
+            <Th key={UUID()} style={{ cursor: 'pointer' }} column={e}><strong>{e}</strong></Th>
+        )
+
+        console.log("setting table state")
+        this.setState({
+            rows: tableRows,
+            header: headerColTags
         })
     }
 
     render() {
-        <TableView headers={this.props.headers}
-            title={this.props.title}
-            rows={this.state.rows} />
+        return (
+            <TableView header={this.state.header}
+                title={this.props.title}
+                rows={this.state.rows} />
+        )
     }
 }

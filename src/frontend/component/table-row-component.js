@@ -1,7 +1,8 @@
 import React from 'react'
 import UUID from 'uuid/v4'
+import { Td } from 'reactable'
 
-import TableRowView from '../view/table-row-view'
+import TableEntryView from '../view/table-entry-view'
 
 export default class TableRowComponent extends React.Component {
     constructor(props) {
@@ -16,13 +17,15 @@ export default class TableRowComponent extends React.Component {
 
     componentWillMount() {
         this.setState({
-            data: this.props.data.map((d) => {
-                <td className='mdl-data-table__cell--non-numeric' key={UUID()}>{d}</td>
-            })
+            data: this.props.data.map((d) =>
+                <Td key={UUID()}>{d}</Td>
+            )
         })
     }
 
     render() {
-        <TableRowView data={this.state.data} />
+        return (
+            <TableEntryView data={this.state.data} />
+        )
     }
 }
