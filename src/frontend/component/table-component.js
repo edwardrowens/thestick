@@ -25,17 +25,16 @@ export default class TableComponent extends React.Component {
         this.props.rows.forEach((row) => {
             let rowData = []
             for (let i = 0; i < row.length; ++i) {
-                <Td key={UUID()} column={this.props.header[i]}>{row[i]}</Td>
+                rowData.push(<Td key={UUID()} column={this.props.header[i]}>{row[i]}</Td>)
             }
-            tableRows.push(<Tr>{rowData}</Tr>)
+            tableRows.push(<Tr key={UUID()}>{rowData}</Tr>)
         })
 
-        // map the columns
+        // map the headers
         let headerColTags = this.props.header.map((e) =>
             <Th key={UUID()} style={{ cursor: 'pointer' }} column={e}><strong>{e}</strong></Th>
         )
 
-        console.log("setting table state")
         this.setState({
             rows: tableRows,
             header: headerColTags

@@ -1,53 +1,34 @@
 import React from 'react'
 
-import Config from '../../config/config'
-import HotsApiResource from '../../service/hots-api-resource'
 import LeaderboardView from '../../view/leaderboard-view'
+import Config from '../../config/config'
 
 export default class HotsLeaderboardComponent extends React.Component {
     constructor(props) {
         super(props)
-        this.setState = this.setState.bind(this)
-        this.onPlayersLoaded = this.onPlayersLoaded.bind(this)
 
         this.state = {
-            playersLoaded: false,
-            rows: [],
-            header: ['Name', 'Rank', 'MMR'],
-            apiCallCount: 0
+            header: ['Name', 'Rank', 'MMR']
         }
-    }
 
-    onPlayersLoaded() {
-        this.setState({ playersLoaded: true })
+        this.setState = this.setState.bind(this)
     }
 
     componentWillMount() {
-        Config.players.forEach((player) => {
-            let playerDataAndBattleTag = []
-            playerDataAndBattleTag.push(player.battleTag)
-            new HotsApiResource(player.battleTag, player.id, this.props.gameModeKey).send((playerData) => {
-                if (playerData) {
-                    playerDataAndBattleTag = playerDataAndBattleTag.concat(playerData)
-                    this.state.rows.push(playerDataAndBattleTag)
-                    ++this.state.apiCallCount
-                }
-                if (this.state.apiCallCount == Config.players.length) {
-                    console.log("calling on players loaded")
-                    this.setState({ tableData: this.state.rows })
-                    this.onPlayersLoaded()
-                }
-            })
-        })
     }
 
     render() {
+        let rows = []
+        console.log("data: " + this.props.aggregatedPlayerData)
+        this.props.aggregatedPlayerData.forEach(data => {
+            rows.push([data.battleTag, data.leagueRank, data.currentMMR])
+        })
         return (
             <div>
-                <LeaderboardView title={this.props.gameModeDisplay}
-                    rows={this.state.rows}
+                <LeaderboardView title={this.props.title}
+                    rows={rows}
                     header={this.state.header}
-                    playersLoaded={this.state.playersLoaded} />
+                    playersLoaded={this.props.playersLoaded} />
             </div>
         )
     }
