@@ -1,25 +1,21 @@
 import React from 'react'
 
 import LeaderboardView from '../../view/leaderboard-view'
-import Config from '../../config/config'
 
-export default class HotsLeaderboardComponent extends React.Component {
+export default class OverwatchLeaderboardComponent extends React.Component {
     constructor(props) {
-        super(props)
-
         this.state = {
-            header: ['Name', 'Rank', 'MMR']
+            header: ['Name', 'Level', 'Wins', 'Losses', 'Playtime', 'rank']
         }
 
         this.setState = this.setState.bind(this)
     }
 
+    componentWillMount() {
+
+    }
+
     render() {
-        let rows = []
-        console.log("data: " + this.props.aggregatedPlayerData)
-        this.props.aggregatedPlayerData.forEach(data => {
-            rows.push([data.battleTag, data.leagueRank, data.currentMMR])
-        })
         return (
             <LeaderboardView title={this.props.title}
                 rows={rows}

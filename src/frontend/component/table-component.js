@@ -25,7 +25,15 @@ export default class TableComponent extends React.Component {
         this.props.rows.forEach((row) => {
             let rowData = []
             for (let i = 0; i < row.length; ++i) {
-                rowData.push(<Td key={UUID()} column={this.props.header[i]}>{row[i]}</Td>)
+                if (row[i] instanceof Object && !(row[i] instanceof String) && row[i].isImage) {
+                    rowData.push(
+                        <Td key={UUID()} column={this.props.header[i]}>
+                            <img src={row[i].src} />
+                        </Td>
+                    )
+                } else {
+                    rowData.push(<Td key={UUID()} column={this.props.header[i]}>{row[i]}</Td>)
+                }
             }
             tableRows.push(<Tr key={UUID()}>{rowData}</Tr>)
         })
