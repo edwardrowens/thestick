@@ -2,9 +2,11 @@ import React from 'react'
 
 import Config from '../config/config'
 import OverwatchGeneralLeaderboardComponent from '../component/leaderboard/overwatch-general-leaderboard-component'
+import OverwatchRankedLeaderboardComponent from '../component/leaderboard/overwatch-ranked-leaderboard-component'
+import OverwatchQuickplayLeaderboardComponent from '../component/leaderboard/overwatch-quickplay-leaderboard-component'
 import OverwatchApiResource from '../service/overwatch-api-resource'
 
-class OverwatchContainer extends React.Component {
+export default class OverwatchContainer extends React.Component {
     constructor(props) {
         super(props)
 
@@ -20,7 +22,7 @@ class OverwatchContainer extends React.Component {
 
     componentWillMount() {
         Config.players.forEach((player) => {
-            new OverwatchApiResource(player.battleTag, player.id).send((playerData) => {
+            new OverwatchApiResource(player).send((playerData) => {
                 if (playerData) {
                     this.state.aggregatedPlayerData.push({
                         general: {
@@ -46,8 +48,6 @@ class OverwatchContainer extends React.Component {
                 }
                 ++this.state.apiCallCount
                 if (this.state.apiCallCount == Config.players.length) {
-                    console.log("players loaded")
-                    console.log("data is " + JSON.stringify(this.state.aggregatedPlayerData))
                     this.onPlayersLoaded()
                 }
             })
@@ -61,10 +61,10 @@ class OverwatchContainer extends React.Component {
     render() {
         return (
             <div className="mdl-grid">
-                <OverwatchGeneralLeaderboardComponent title={'General Info'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} />
+                <OverwatchGeneralLeaderboardComponent title={'General'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                <OverwatchRankedLeaderboardComponent title={'Ranked'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 690 }} />
+                <OverwatchQuickplayLeaderboardComponent title={'Quickplay'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 350 }} />
             </div>
         )
     }
 }
-
-export default OverwatchContainer

@@ -21,7 +21,7 @@ export default class HeroesContainer extends React.Component {
 
     componentWillMount() {
         Config.players.forEach((player) => {
-            new HotsApiResource(player.battleTag, player.id).send((leaderboardRankings) => {
+            new HotsApiResource(player).send((leaderboardRankings) => {
                 if (leaderboardRankings) {
                     this.state.gameModes.forEach(gameMode => {
                         leaderboardRankings.forEach(leaderboardRanking => {
@@ -48,10 +48,10 @@ export default class HeroesContainer extends React.Component {
     render() {
         return (
             <div className="mdl-grid">
-                <HotsLeaderboardComponent title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} />
-                <HotsLeaderboardComponent title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} />
-                <HotsLeaderboardComponent title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} />
-                <HotsLeaderboardComponent title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} />
+                <HotsLeaderboardComponent title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                <HotsLeaderboardComponent title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                <HotsLeaderboardComponent title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                <HotsLeaderboardComponent title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
             </div>
         )
     }

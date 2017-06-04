@@ -2,9 +2,9 @@ import { Client } from 'node-rest-client'
 import Config from '../config/config'
 
 export default class HotsApiResource {
-    constructor(battleTag, id) {
-        this.battleTag = battleTag
-        this.id = id
+    constructor(player) {
+        this.battleTag = player.battleTag
+        this.id = player.id
     }
 
     send(callback) {
@@ -16,7 +16,7 @@ export default class HotsApiResource {
                     callback(null)
                     return
                 }
-                callback(body.LeaderboardRankings)
+                callback(body)
             } else {
                 console.error('Could not retrieve data for player ' + this.battleTag)
                 callback(null)

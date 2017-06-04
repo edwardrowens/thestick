@@ -4,8 +4,6 @@ import UUID from 'uuid/v4'
 import { Td, Tr, Th } from 'reactable'
 
 import TableView from '../view/table-view'
-import TableRowComponent from './table-row-component'
-import TableColHeaderComponent from './table-col-header-component'
 
 export default class TableComponent extends React.Component {
     constructor(props) {
@@ -25,13 +23,17 @@ export default class TableComponent extends React.Component {
         this.props.rows.forEach((row) => {
             let rowData = []
             for (let i = 0; i < row.length; ++i) {
-                if (row[i] instanceof Object && !(row[i] instanceof String) && row[i].isImage) {
+                let isObject = row[i] instanceof Object
+                if (isObject && row[i].isImage) {
                     rowData.push(
                         <Td key={UUID()} column={this.props.header[i]}>
-                            <img src={row[i].src} />
+                            <img style={{ width: 35, height: 35 }} src={row[i].src} />
                         </Td>
                     )
-                } else {
+                } else if (!row[i]) {
+                    rowData.push(<Td key={UUID()} column={this.props.header[i]}>{0}</Td>)
+                }
+                else {
                     rowData.push(<Td key={UUID()} column={this.props.header[i]}>{row[i]}</Td>)
                 }
             }
@@ -53,7 +55,8 @@ export default class TableComponent extends React.Component {
         return (
             <TableView header={this.state.header}
                 title={this.props.title}
-                rows={this.state.rows} />
+                rows={this.state.rows}
+                style={this.props.style} />
         )
     }
 }

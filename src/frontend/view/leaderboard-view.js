@@ -6,10 +6,10 @@ import TableComponent from '../component/table-component'
 export default (props) => {
     let content = <SpinnerView />
     if (props.playersLoaded) {
-        content = <TableComponent rows={props.rows} header={props.header} />
+        content = <TableComponent rows={props.rows} header={props.header} style={{ width: props.style.width }} />
     }
     return (
-        <div className="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp" style={{ width: 300, paddingBottom: 20 }}>
+        <div className="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp" style={props.style}>
             <div className="mdl-card__title">
                 <h2 className="mdl-card__title-text">{props.title}</h2>
             </div>
