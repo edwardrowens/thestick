@@ -1,17 +1,21 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router} from 'react-router-dom'
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import Header from './container/header-container'
 import Body from './container/body-container'
+import Drawer from './container/drawer-container'
 
 class Application extends React.Component {
     render() {
         return (
             <Router>
-                <div className="mdl-layout mdl-js-layout">
+                <div className="mdl-layout mdl-js-layout mdl-layout--no-desktop-drawer-button mdl-layout--fixed-header">
                     <Header />
-                    <Body />
+                    <Drawer />
+                    <main className="mdl-layout__content" >
+                        <Body />
+                    </main>
                 </div>
             </Router>
         )
