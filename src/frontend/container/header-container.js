@@ -43,9 +43,9 @@ class HeaderContainer extends React.Component {
             case 'overwatch':
                 this.setState({ homeActive: false, overwatchActive: true, heroesActive: false, wowActive: false })
                 break
-            case 'wow':
-                this.setState({ homeActive: false, overwatchActive: false, heroesActive: false, wowActive: true })
-                break
+            // case 'wow':
+            //     this.setState({ homeActive: false, overwatchActive: false, heroesActive: false, wowActive: true })
+            //     break
         }
     }
 
@@ -58,7 +58,7 @@ class HeaderContainer extends React.Component {
                         <div className="mdl-layout-spacer"></div>
                         <nav className="mdl-navigation">
                             <TabComponent name={'home'} onClick={this.onClick} isActive={this.state.homeActive} text={'Home'} path={'/'} />
-                            <TabComponent name={'wow'} onClick={this.onClick} isActive={this.state.wowActive} text={'WoW'} path={'/wow'} />
+                            {/*<TabComponent name={'wow'} onClick={this.onClick} isActive={this.state.wowActive} text={'WoW'} path={'/wow'} />*/}
                             <TabComponent name={'overwatch'} onClick={this.onClick} isActive={this.state.overwatchActive} text={'Overwatch'} path={'/overwatch'} />
                             <TabComponent name={'heroes'} onClick={this.onClick} isActive={this.state.heroesActive} text={'Heroes'} path={'/heroes'} />
                         </nav>
