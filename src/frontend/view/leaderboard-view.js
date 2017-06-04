@@ -9,7 +9,7 @@ export default (props) => {
         content = <TableComponent rows={props.rows} header={props.header} style={{ width: props.style.width }} />
     }
     return (
-        <div className="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--4dp" style={props.style}>
+        <div className="mdl-cell mdl-cell--5-col mdl-card mdl-shadow--2dp" style={props.style}>
             <div className="mdl-card__title">
                 <h2 className="mdl-card__title-text">{props.title}</h2>
             </div>

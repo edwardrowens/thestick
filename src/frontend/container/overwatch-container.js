@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Config from '../config/config'
+import ContentView from '../view/content-view'
 import OverwatchGeneralLeaderboardComponent from '../component/leaderboard/overwatch-general-leaderboard-component'
 import OverwatchRankedLeaderboardComponent from '../component/leaderboard/overwatch-ranked-leaderboard-component'
 import OverwatchQuickplayLeaderboardComponent from '../component/leaderboard/overwatch-quickplay-leaderboard-component'
@@ -60,11 +61,13 @@ export default class OverwatchContainer extends React.Component {
 
     render() {
         return (
-            <div className="mdl-grid">
-                <OverwatchGeneralLeaderboardComponent title={'General'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                <OverwatchRankedLeaderboardComponent title={'Ranked'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 690 }} />
-                <OverwatchQuickplayLeaderboardComponent title={'Quickplay'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 350 }} />
-            </div>
+            <ContentView title="Leaderboards">
+                <div className="mdl-grid">
+                    <OverwatchGeneralLeaderboardComponent title={'General'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                    <OverwatchQuickplayLeaderboardComponent title={'Quickplay'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 350 }} />
+                    <OverwatchRankedLeaderboardComponent title={'Ranked'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 690 }} />
+                </div>
+            </ContentView>
         )
     }
 }

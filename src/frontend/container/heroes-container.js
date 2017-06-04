@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Config from '../config/config'
+import ContentView from '../view/content-view'
 import HotsApiResource from '../service/hots-api-resource'
 import HotsLeaderboardComponent from '../component/leaderboard/hots-leaderboard-component'
 
@@ -47,12 +48,14 @@ export default class HeroesContainer extends React.Component {
 
     render() {
         return (
-            <div className="mdl-grid">
-                <HotsLeaderboardComponent title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                <HotsLeaderboardComponent title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                <HotsLeaderboardComponent title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                <HotsLeaderboardComponent title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-            </div>
+            <ContentView title="Leaderboards">
+                <div className="mdl-grid">
+                    <HotsLeaderboardComponent title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                    <HotsLeaderboardComponent title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                    <HotsLeaderboardComponent title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                    <HotsLeaderboardComponent title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                </div>
+            </ContentView>
         )
     }
 }
