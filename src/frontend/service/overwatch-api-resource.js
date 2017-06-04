@@ -9,7 +9,7 @@ export default class HotsApiResource {
 
     send(callback) {
         let client = new Client()
-        client.get('http://ow-api.herokuapp.com/profile/pc/us/' + this.battleTag + '-' + this.id, (body, res) => {
+        client.get('https://ow-api.herokuapp.com/profile/pc/us/' + this.battleTag + '-' + this.id, (body, res) => {
             if (res.statusCode == 200) {
                 if (!body) {
                     console.log("no body present for: " + res.url)
