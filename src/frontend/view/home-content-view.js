@@ -24,6 +24,7 @@ export default (props) => {
                         let style = props.style ? props.style : {}
                         style.width = '100%'
                         style.margin = 0
+                        style.marginTop = 20
                         return (
                             <div className="mdl-cell mdl-cell--6-col mdl-card mdl-shadow--2dp" style={style} >
                                 <div className="mdl-card__media">
