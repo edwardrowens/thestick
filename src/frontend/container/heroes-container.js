@@ -49,11 +49,11 @@ export default class HeroesContainer extends React.Component {
     render() {
         return (
             <ContentView title="Leaderboards">
-                <div className="mdl-grid">
-                    <HotsLeaderboardComponent title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                    <HotsLeaderboardComponent title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                    <HotsLeaderboardComponent title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                    <HotsLeaderboardComponent title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
+                <div className="mdl-grid" style={{ padding: 0 }}>
+                    <HotsLeaderboardComponent title={'Quick Match'} aggregatedPlayerData={this.state.aggregatedPlayerData.QuickMatch} playersLoaded={this.state.playersLoaded} />>
+                    <HotsLeaderboardComponent title={'Hero League'} aggregatedPlayerData={this.state.aggregatedPlayerData.HeroLeague} playersLoaded={this.state.playersLoaded} />
+                    <HotsLeaderboardComponent title={'Unranked Draft'} aggregatedPlayerData={this.state.aggregatedPlayerData.UnrankedDraft} playersLoaded={this.state.playersLoaded} />
+                    <HotsLeaderboardComponent title={'Team League'} aggregatedPlayerData={this.state.aggregatedPlayerData.TeamLeague} playersLoaded={this.state.playersLoaded} />
                 </div>
             </ContentView>
         )

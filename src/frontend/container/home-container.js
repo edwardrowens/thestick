@@ -30,6 +30,7 @@ export default class HomeContainer extends React.Component {
     }
 
     render() {
+        console.log("rendering home!")
         return (
             <div>
                 <ContentView title="About" style={{ margin: '0 auto' }}>
