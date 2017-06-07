@@ -28,14 +28,14 @@ export default class StreamingNotificationComponent extends React.Component {
     }
 
     render() {
-        // if (this.state.streaming) {
+        if (this.state.streaming) {
             return (
                 <StreamingNotificationView online={true} />
             )
-        // } else {
-        //     return (
-        //         <StreamingNotificationView online={false} />
-        //     )
-        // }
+        } else {
+            return (
+                <StreamingNotificationView online={false} />
+            )
+        }
     }
 }
