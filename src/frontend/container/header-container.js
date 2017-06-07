@@ -1,5 +1,7 @@
 import React from 'react'
+
 import TabComponent from '../component/tab-component'
+import StreamingNotificationComponent from '../component/streaming-notification-component'
 
 class HeaderContainer extends React.Component {
     constructor(props) {
@@ -55,6 +57,7 @@ class HeaderContainer extends React.Component {
                 <div className="mdl-layout__header-row">
                     <div className="mdl-layout-spacer mdl-layout--small-screen-only"></div>
                     <span className="mdl-layout-title">The Stick</span>
+                    <StreamingNotificationComponent />
                     <div className="mdl-layout-spacer mdl-layout--large-screen-only"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only" >
                         <TabComponent name={'home'} onClick={this.onClick} isActive={this.state.homeActive} text={'Home'} path={'/'} />
