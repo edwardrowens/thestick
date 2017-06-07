@@ -10,13 +10,13 @@ export default (props) => {
                 (matches) => {
                     if (matches) {
                         return (
-                            <MediaCardView style={props.style} size={props.size} title={props.title} img={props.img}>
+                            <MediaCardView style={props.style} size={props.size} title={props.title} img={props.img} contentStyle={props.contentStyle}>
                                 {props.children}
                             </MediaCardView>
                         )
                     } else {
                         return (
-                            <MediaCardView style={props.smallScreenStyle} size={props.size} title={props.title} img={props.img}>
+                            <MediaCardView style={props.smallScreenStyle} size={props.size} title={props.title} img={props.img} contentStyle={props.contentStyle}>
                                 {props.children}
                             </MediaCardView>
                         )

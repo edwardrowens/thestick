@@ -2,7 +2,7 @@ import React from 'react'
 
 import SpinnerView from './spinner-view'
 import TableComponent from '../component/table-component'
-import TitledResponsiveCardView from './titled-responsive-card-view'
+import ResponsiveTitledCardView from './responsive-titled-card-view'
 
 export default (props) => {
     let content = <SpinnerView />
@@ -10,8 +10,12 @@ export default (props) => {
         content = <TableComponent rows={props.rows} header={props.header} style={{ width: '100%' }} />
     }
     return (
-        <TitledResponsiveCardView title={props.title} cardSize={5} smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }} style={{ margin: '0 auto', width: '100%' }}>
+        <ResponsiveTitledCardView
+            title={props.title}
+            cardSize={5}
+            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }}
+            style={props.style}>
             {content}
-        </TitledResponsiveCardView>
+        </ResponsiveTitledCardView>
     )
 }

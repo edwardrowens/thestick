@@ -1,7 +1,7 @@
 import React from 'react'
 
 import Config from '../config/config'
-import TitledResponsiveCardView from '../view/titled-responsive-card-view'
+import ResponsiveTitledCardView from '../view/responsive-titled-card-view'
 import OverwatchGeneralLeaderboardComponent from '../component/leaderboard/overwatch-general-leaderboard-component'
 import OverwatchRankedLeaderboardComponent from '../component/leaderboard/overwatch-ranked-leaderboard-component'
 import OverwatchQuickplayLeaderboardComponent from '../component/leaderboard/overwatch-quickplay-leaderboard-component'
@@ -61,13 +61,13 @@ export default class OverwatchContainer extends React.Component {
 
     render() {
         return (
-            <TitledResponsiveCardView title="Leaderboards" cardSize={12}>
+            <ResponsiveTitledCardView title="Leaderboards" size={12}>
                 <div className="mdl-grid" style={{ padding: 0 }}>
                     <OverwatchGeneralLeaderboardComponent title={'General'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
                     <OverwatchQuickplayLeaderboardComponent title={'Quickplay'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 350 }} />
                     <OverwatchRankedLeaderboardComponent title={'Ranked'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 690 }} />
                 </div>
-            </TitledResponsiveCardView>
+            </ResponsiveTitledCardView>
         )
     }
 }

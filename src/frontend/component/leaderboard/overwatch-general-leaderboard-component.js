@@ -22,7 +22,8 @@ export default class OverwatchGeneralLeaderboardComponent extends React.Componen
             <LeaderboardView title={this.props.title}
                 rows={rows}
                 header={this.state.header}
-                playersLoaded={this.props.playersLoaded} />
+                playersLoaded={this.props.playersLoaded}
+                style={this.props.style} />
         )
     }
 }

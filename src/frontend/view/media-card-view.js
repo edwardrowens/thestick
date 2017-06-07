@@ -9,7 +9,7 @@ export default (props) => {
             <div className="mdl-card__title">
                 <h2 className="mdl-card__title-text">{props.title}</h2>
             </div>
-            <div className="mdl-card--border">
+            <div className="mdl-card--border" style={props.contentStyle}>
                 {props.children}
             </div>
         </div >
