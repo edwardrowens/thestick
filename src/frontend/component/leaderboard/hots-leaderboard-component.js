@@ -24,7 +24,8 @@ export default class HotsLeaderboardComponent extends React.Component {
             <LeaderboardView title={this.props.title}
                 rows={rows}
                 header={this.state.header}
-                playersLoaded={this.props.playersLoaded} />
+                playersLoaded={this.props.playersLoaded}
+                defaultSort={{ column: 'MMR', direction: 'desc' }} />
         )
     }
 }

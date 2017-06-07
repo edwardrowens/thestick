@@ -29,7 +29,8 @@ export default class OverwatchQuickplayLeaderboardComponent extends React.Compon
                 rows={rows}
                 header={this.state.header}
                 playersLoaded={this.props.playersLoaded}
-                style={this.props.style} />
+                style={this.props.style}
+                defaultSort={{ column: 'Wins', direction: 'desc' }} />
         )
     }
 }

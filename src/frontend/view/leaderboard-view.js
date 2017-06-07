@@ -7,7 +7,7 @@ import ResponsiveTitledCardView from './responsive-titled-card-view'
 export default (props) => {
     let content = <SpinnerView />
     if (props.playersLoaded) {
-        content = <TableComponent rows={props.rows} header={props.header} style={{ width: '100%' }} />
+        content = <TableComponent rows={props.rows} header={props.header} style={{ width: '100%' }} defaultSort={props.defaultSort}/>
     }
     return (
         <ResponsiveTitledCardView

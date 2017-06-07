@@ -47,24 +47,27 @@ export default class HomeContainer extends React.Component {
                 <ResponsiveTitledCardView size={12} title="News">
                     <div className="mdl-grid">
                         <ResponsiveMediaCardView
-                            contentStyle={{ padding: 10, width: 300 }}
+                            style={{ width: 250 }}
+                            contentStyle={{ padding: 10 }}
+                            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }}
                             title="Daniol has a site!"
-                            img="/assets/poppacooldownLogo.png"
-                            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }}>
+                            img="/assets/poppacooldownLogo.png">
                             <p>Check out <a href="https://www.poppacooldown.com/">Poppa Cooldown</a> run by our very own Daniol! He puts up all kinds of content on everything gaming.</p>
                         </ResponsiveMediaCardView>
                         <ResponsiveMediaCardView
-                            contentStyle={{ padding: 10, width: 300 }}
+                            style={{ width: 250 }}
+                            contentStyle={{ padding: 10 }}
+                            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }}
                             title="MarchWaltz can read!? And even write?!"
-                            img="/assets/marchwaltz_book_cover.jpg"
-                            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }} >
+                            img="/assets/marchwaltz_book_cover.jpg">
                             <p>Our very own MarchWaltz is writing a book and it'll be released sometime but IDK when cause he's always afk.</p>
                         </ResponsiveMediaCardView>
                         <ResponsiveMediaCardView
-                            contentStyle={{ padding: 10, width: 300 }}
+                            style={{ width: 250 }}
+                            contentStyle={{ padding: 10 }}
+                            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }}
                             title="Eddie won't stop making shitty sites!"
-                            img="/assets/eddie_logo.jpg"
-                            smallScreenStyle={{ width: '100%', margin: 0, marginTop: 20 }} >
+                            img="/assets/eddie_logo.jpg">
                             <p>EddieBeMe made another shitty site just like this one! <a href="http://www.eddieowens.me/">Check it out!</a></p>
                         </ResponsiveMediaCardView>
                     </div>

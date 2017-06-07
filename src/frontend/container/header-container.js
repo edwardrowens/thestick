@@ -56,8 +56,8 @@ class HeaderContainer extends React.Component {
             <header className="mdl-layout__header mdl-layout__header--scroll">
                 <div className="mdl-layout__header-row">
                     <div className="mdl-layout-spacer mdl-layout--small-screen-only"></div>
-                    <span className="mdl-layout-title">The Stick</span>
                     <StreamingNotificationComponent />
+                    <span className="mdl-layout-title">The Stick</span>
                     <div className="mdl-layout-spacer mdl-layout--large-screen-only"></div>
                     <nav className="mdl-navigation mdl-layout--large-screen-only" >
                         <TabComponent name={'home'} onClick={this.onClick} isActive={this.state.homeActive} text={'Home'} path={'/'} />

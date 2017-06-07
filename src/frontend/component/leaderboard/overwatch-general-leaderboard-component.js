@@ -23,7 +23,8 @@ export default class OverwatchGeneralLeaderboardComponent extends React.Componen
                 rows={rows}
                 header={this.state.header}
                 playersLoaded={this.props.playersLoaded}
-                style={this.props.style} />
+                style={this.props.style}
+                defaultSort={{ column: 'Level', direction: 'desc' }} />
         )
     }
 }

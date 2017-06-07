@@ -33,7 +33,8 @@ export default class OverwatchRankedLeaderboardComponent extends React.Component
                 rows={rows}
                 header={this.state.header}
                 playersLoaded={this.props.playersLoaded}
-                style={this.props.style} />
+                style={this.props.style} 
+                defaultSort={{column: 'Wins', direction: 'desc'}}/>
         )
     }
 }

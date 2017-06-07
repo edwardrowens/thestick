@@ -6,7 +6,7 @@ export default class DrawerContainer extends React.Component {
     render() {
         return (
             <div className="mdl-layout__drawer">
-                <span className="mdl-layout-title">The Stick</span>
+                <span className="mdl-layout-title" style={{ backgroundColor: 'rgb(33,150,243)', color: 'white' }}>The Stick</span>
                 <nav className="mdl-navigation">
                     <Link className="mdl-navigation__link" to={'/'}>Home</Link>
                     <Link className="mdl-navigation__link" to={'/overwatch'}>Overwatch</Link>

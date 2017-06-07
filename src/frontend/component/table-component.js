@@ -56,7 +56,8 @@ export default class TableComponent extends React.Component {
             <TableView header={this.state.header}
                 title={this.props.title}
                 rows={this.state.rows}
-                style={this.props.style} />
+                style={this.props.style}
+                defaultSort={this.props.defaultSort} />
         )
     }
 }
