@@ -1,5 +1,7 @@
 import { Client } from 'node-rest-client'
 
+var clientId = process.env.TWITCH_CLIENT_ID
+
 export default class TwitchApiResource {
     constructor() {
 
@@ -10,7 +12,7 @@ export default class TwitchApiResource {
         let args = {
             headers: {
                 "Content-type": "application/json",
-                "Client-ID" : process.env.TWITCH_CLIENT_ID
+                "Client-ID" : clientId
             }
         }
         client.get('https://api.twitch.tv/kraken/streams/thesticktv', args, (body, res) => {
