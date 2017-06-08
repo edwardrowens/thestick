@@ -18,7 +18,7 @@ export default class StreamingNotificationComponent extends React.Component {
     componentWillMount() {
         new TwitchApiResource().send((body) => {
             if (body.stream) {
-                onStreamingLive()
+                this.onStreamingLive()
             }
         })
     }
