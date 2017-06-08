@@ -64,8 +64,8 @@ export default class OverwatchContainer extends React.Component {
             <ResponsiveTitledCardView title="Leaderboards" size={12}>
                 <div className="mdl-grid" style={{ padding: 0 }}>
                     <OverwatchGeneralLeaderboardComponent title={'General'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 300 }} />
-                    <OverwatchQuickplayLeaderboardComponent title={'Quickplay'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 350 }} />
-                    <OverwatchRankedLeaderboardComponent title={'Ranked'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 690 }} />
+                    <OverwatchQuickplayLeaderboardComponent title={'Quickplay'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 370 }} />
+                    <OverwatchRankedLeaderboardComponent title={'Ranked'} aggregatedPlayerData={this.state.aggregatedPlayerData} playersLoaded={this.state.playersLoaded} style={{ width: 720 }} />
                 </div>
             </ResponsiveTitledCardView>
         )
