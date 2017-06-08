@@ -7,7 +7,7 @@ export default class TwitchApiResource {
 
     send(callback) {
         let client = new Client()
-        client.get('http://thestick.herokuapp.com/twitch/streaming', (body, res) => {
+        client.get('https://thestick.herokuapp.com/twitch/streaming', (body, res) => {
             if (res.statusCode == 200) {
                 if (!body) {
                     console.log("no body present for: " + res.url)
