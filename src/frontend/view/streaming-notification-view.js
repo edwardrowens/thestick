@@ -8,7 +8,7 @@ export default (props) => {
         text = 'live!!'
     }
     return (
-        <a style={{ marginRight: 20, textDecoration: 'none', color: 'rgba(0, 0, 0, 1)', textAlign: 'center' }} href='https://www.twitch.tv/thesticktv'>
+        <a target='_blank' style={{ marginRight: 20, textDecoration: 'none', color: 'rgba(0, 0, 0, 1)', textAlign: 'center' }} href='https://www.twitch.tv/thesticktv'>
             <div style={{ margin: '0 auto' }} id="streaming" style={style} className="material-icons md-48">wifi</div>
             <div className="mdl-tooltip mdl-tooltip--large" htmlFor="streaming" style={{ background: '#000', overflow: 'visible' }}>
                 {text}
