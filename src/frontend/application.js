@@ -4,7 +4,7 @@ import { BrowserRouter as Router } from 'react-router-dom'
 
 import Header from './container/header-container'
 import Body from './container/body-container'
-import Drawer from './container/drawer-container'
+import Drawer from './component/drawer-component'
 
 class Application extends React.Component {
     render() {

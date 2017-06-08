@@ -10,11 +10,29 @@ export default class TableComponent extends React.Component {
         super(props)
 
         this.state = {
-            header: {},
+            header: [],
             rows: []
         }
 
         this.setState = this.setState.bind(this)
+        this.onSort = this.onSort.bind(this)
+    }
+
+    onSort(header) {
+        console.log("sort called!")
+        // map the headers
+        let headerColTags = this.props.header.map((e) => {
+            let className = ''
+            if (header.column == e) {
+                if (header.direction == 1) {
+                    className = 'mdl-data-table__header--sorted-ascending'
+                } else if (header.direction == -1) {
+                    className = 'mdl-data-table__header--sorted-descending'
+                }
+            }
+            return <Th className={className} key={UUID()} style={{ cursor: 'pointer' }} column={e}><strong>{e}</strong></Th>
+        })
+        this.setState({ header: headerColTags })
     }
 
     componentWillMount() {
@@ -41,9 +59,19 @@ export default class TableComponent extends React.Component {
         })
 
         // map the headers
-        let headerColTags = this.props.header.map((e) =>
-            <Th key={UUID()} style={{ cursor: 'pointer' }} column={e}><strong>{e}</strong></Th>
-        )
+        let headerColTags = this.props.header.map((e) => {
+            let className = ''
+            if (this.props.defaultSort) {
+                if (this.props.defaultSort.column == e) {
+                    if (this.props.defaultSort.direction == 'asc') {
+                        className = 'mdl-data-table__header--sorted-ascending'
+                    } else if (this.props.defaultSort.direction == 'desc') {
+                        className = 'mdl-data-table__header--sorted-descending'
+                    }
+                }
+            }
+            return <Th className={className} key={UUID()} style={{ cursor: 'pointer' }} column={e}><strong>{e}</strong></Th>
+        })
 
         this.setState({
             rows: tableRows,
@@ -57,7 +85,8 @@ export default class TableComponent extends React.Component {
                 title={this.props.title}
                 rows={this.state.rows}
                 style={this.props.style}
-                defaultSort={this.props.defaultSort} />
+                defaultSort={this.props.defaultSort}
+                onSort={this.onSort} />
         )
     }
 }
